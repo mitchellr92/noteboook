@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import NoteForm from "../src/Components/NoteForm/NoteForm";
+import NoteEdit from "../src/Components/EditNote/EditNote";
+import NoteCard from "../src/Components/NoteCard/NoteCard";
+import NoteList from "../src/Components/NoteList/NoteList";
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      notes: []
+    };
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <Route exact path="/" render={props => <EditNote />} />
+          <Route exact path="/" render={props => <NoteForm />} />
+          <Route exact path="/" render={props => <NoteCard />} />
+          <Route exact path="/" render={props => <NoteList />} />
+        </div>
+      </div>
+    );
+  }
 }
 
 export default App;
