@@ -3,8 +3,8 @@ import { Route } from "react-router-dom";
 import "./App.css";
 
 import NoteForm from "../src/Components/NoteForm/NoteForm";
-// import EditNote from "../src/Components/EditNote/EditNote";
-// import Note from "../src/Components/Note/Note";
+import EditNote from "../src/Components/EditNote/EditNote";
+import Note from "../src/Components/Note/Note";
 import NoteList from "../src/Components/NoteList/NoteList";
 
 class App extends Component {
@@ -21,8 +21,8 @@ class App extends Component {
         <div>
           <Route exact path="/" render={props => <NoteList />} />
           <Route exact path="/notes/form" render={props => <NoteForm />} />
-          {/* // <Route exact path="/notes/id" render={props => <Note />} />
-          // <Route exact path="/notes/edit/:id" render={props => <EditNote />} /> */}
+          <Route exact path="/notes/id" render={props => <Note />} />
+          <Route exact path="/notes/edit/:id" render={props => <EditNote />} />
         </div>
       </div>
     );
